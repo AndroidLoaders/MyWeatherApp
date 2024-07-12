@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Zooplus Demo</string>
+    <string name="weather_app">Weather App</string>
+    <string name="home">Home</string>
+    <string name="air_quality">Air Quality</string>
+    <string name="air_pollution_details">Air Pollution Details</string>
+    <string name="date">Date</string>μg/
+    <string name="carbon_monoxide">CO (Carbon monoxide)</string>
+    <string name="nitrogen_monoxide">NO (Nitrogen monoxide)</string>
+    <string name="nitrogen_dioxide">NO2 (Nitrogen monoxide)</string>
+    <string name="sulphur_dioxide">SO2 (Sulphur monoxide)</string>
+    <string name="ozone">Ozone</string>
+    <string name="particles_matter">PM2.5 (Fine particles matter)</string>
+    <string name="particles_matter_10">PM10 (Coarse particles matter)</string>
+    <string name="ammonia">NH3 (Ammonia)</string>
+    <string name="parameter">%s μg/m3</string>
+    <string name="no_data">Not Available</string>
+    <string name="error_message">Something went wrong. Please try again leter</string>
+</resources>

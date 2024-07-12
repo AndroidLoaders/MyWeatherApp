@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.example.zooplsdemo.ui.ui.airpollutiondetails.AirPollutionViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/pbWeatherDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.airPollutionData.progressVisibility ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCO"
+            style="@style/Style.TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/carbon_monoxide"
+            android:visibility="@{viewModel.airPollutionData.progressVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintEnd_toStartOf="@id/tvCOValue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="CO (Carbon Monoxide)" />
+
+        <TextView
+            android:id="@+id/tvCOValue"
+            style="@style/Style.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end|center_vertical"
+            android:text="@{viewModel.airPollutionData.co.equals((@string/no_data)) ? (@string/no_data) : @string/parameter(viewModel.airPollutionData.no)}"
+            android:visibility="@{viewModel.airPollutionData.progressVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@id/tvCO"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvCO"
+            app:layout_constraintTop_toTopOf="@id/tvCO"
+            tools:text="347.16 μg/m3" />
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_height"
+            android:layout_marginStart="@dimen/space_16"
+            android:layout_marginEnd="@dimen/space_16"
+            android:background="@color/cardview_shadow_start_color"
+            android:visibility="@{viewModel.airPollutionData.progressVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintTop_toBottomOf="@id/tvCO" />
+
+        <TextView
+            android:id="@+id/tvNO"
+            style="@style/Style.TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/nitrogen_monoxide"
+            android:visibility="@{viewModel.airPollutionData.progressVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintEnd_toStartOf="@id/tvNOValue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider1"
+            tools:text="NO (Nitrogen Monoxide)" />
+
+        <TextView
+            android:id="@+id/tvNOValue"
+            style="@style/Style.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end|center_vertical"
+            android:text="@{viewModel.airPollutionData.co.equals((@string/no_data)) ? (@string/no_data) : @string/parameter(viewModel.airPollutionData.no)}"
+            android:visibility="@{viewModel.airPollutionData.progressVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@id/tvNO"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvNO"
+            app:layout_constraintTop_toTopOf="@id/tvNO"
+            tools:text="347.16 μg/m3" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_height"
+            android:layout_marginStart="@dimen/space_16"
+            android:layout_marginEnd="@dimen/space_16"
+            android:background="@color/cardview_shadow_start_color"
+            android:visibility="@{viewModel.airPollutionData.progressVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintTop_toBottomOf="@id/tvNO" />
+
+        <TextView
+            android:id="@+id/tvNO2"
+            style="@style/Style.TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/nitrogen_dioxide"
+            android:visibility="@{viewModel.airPollutionData.progressVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintEnd_toStartOf="@id/tvNO2Value"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider2"
+            tools:text="NO2 (Nitrogen dioxide)" />
+
+        <TextView
+            android:id="@+id/tvNO2Value"
+            style="@style/Style.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end|center_vertical"
+            android:text="@{viewModel.airPollutionData.co.equals((@string/no_data)) ? (@string/no_data) : @string/parameter(viewModel.airPollutionData.no2)}"
+            android:visibility="@{viewModel.airPollutionData.progressVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@id/tvNO2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvNO2"
+            app:layout_constraintTop_toTopOf="@id/tvNO2"
+            tools:text="347.16 μg/m3" />
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_height"
+            android:layout_marginStart="@dimen/space_16"
+            android:layout_marginEnd="@dimen/space_16"
+            android:background="@color/cardview_shadow_start_color"
+            android:visibility="@{viewModel.airPollutionData.progressVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintTop_toBottomOf="@id/tvNO2" />
+
+        <TextView
+            android:id="@+id/tvOzone"
+            style="@style/Style.TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/ozone"
+            android:visibility="@{viewModel.airPollutionData.progressVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintEnd_toStartOf="@id/tvOzoneValue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider3"
+            tools:text="O3 (Ozone)" />
+
+        <TextView
+            android:id="@+id/tvOzoneValue"
+            style="@style/Style.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end|center_vertical"
+            android:text="@{viewModel.airPollutionData.co.equals((@string/no_data)) ? (@string/no_data) : @string/parameter(viewModel.airPollutionData.ozone)}"
+            android:visibility="@{viewModel.airPollutionData.progressVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@id/tvOzone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvOzone"
+            app:layout_constraintTop_toTopOf="@id/tvOzone"
+            tools:text="347.16 μg/m3" />
+
+        <View
+            android:id="@+id/divider4"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_height"
+            android:layout_marginStart="@dimen/space_16"
+            android:layout_marginEnd="@dimen/space_16"
+            android:background="@color/cardview_shadow_start_color"
+            android:visibility="@{viewModel.airPollutionData.progressVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintTop_toBottomOf="@id/tvOzone" />
+
+        <TextView
+            android:id="@+id/tvSO2"
+            style="@style/Style.TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/sulphur_dioxide"
+            android:visibility="@{viewModel.airPollutionData.progressVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintEnd_toStartOf="@id/tvSO2Value"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider4"
+            tools:text="SO2 (Sulphur monoxide)" />
+
+        <TextView
+            android:id="@+id/tvSO2Value"
+            style="@style/Style.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end|center_vertical"
+            android:text="@{viewModel.airPollutionData.co.equals((@string/no_data)) ? (@string/no_data) : @string/parameter(viewModel.airPollutionData.so2)}"
+            android:visibility="@{viewModel.airPollutionData.progressVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@id/tvSO2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvSO2"
+            app:layout_constraintTop_toTopOf="@id/tvSO2"
+            tools:text="347.16 μg/m3" />
+
+        <View
+            android:id="@+id/divider5"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_height"
+            android:layout_marginStart="@dimen/space_16"
+            android:layout_marginEnd="@dimen/space_16"
+            android:background="@color/cardview_shadow_start_color"
+            android:visibility="@{viewModel.airPollutionData.progressVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintTop_toBottomOf="@id/tvSO2" />
+
+        <TextView
+            android:id="@+id/tvParticlesMatter"
+            style="@style/Style.TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/particles_matter"
+            android:visibility="@{viewModel.airPollutionData.progressVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintEnd_toStartOf="@id/tvParticlesMatterValue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider5"
+            tools:text="PM2.5 (Fine particles matter)" />
+
+        <TextView
+            android:id="@+id/tvParticlesMatterValue"
+            style="@style/Style.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end|center_vertical"
+            android:text="@{viewModel.airPollutionData.co.equals((@string/no_data)) ? (@string/no_data) : @string/parameter(viewModel.airPollutionData.pm2to5)}"
+            android:visibility="@{viewModel.airPollutionData.progressVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@id/tvParticlesMatter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvParticlesMatter"
+            app:layout_constraintTop_toTopOf="@id/tvParticlesMatter"
+            tools:text="347.16 μg/m3" />
+
+        <View
+            android:id="@+id/divider6"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_height"
+            android:layout_marginStart="@dimen/space_16"
+            android:layout_marginEnd="@dimen/space_16"
+            android:background="@color/cardview_shadow_start_color"
+            android:visibility="@{viewModel.airPollutionData.progressVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintTop_toBottomOf="@id/tvParticlesMatter" />
+
+        <TextView
+            android:id="@+id/tvParticlesMatter10"
+            style="@style/Style.TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/particles_matter_10"
+            android:visibility="@{viewModel.airPollutionData.progressVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintEnd_toStartOf="@id/tvParticlesMatter10Value"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider6"
+            tools:text="PM10 (Coarse particles matter)" />
+
+        <TextView
+            android:id="@+id/tvParticlesMatter10Value"
+            style="@style/Style.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end|center_vertical"
+            android:text="@{viewModel.airPollutionData.co.equals((@string/no_data)) ? (@string/no_data) : @string/parameter(viewModel.airPollutionData.pm10)}"
+            android:visibility="@{viewModel.airPollutionData.progressVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@id/tvParticlesMatter10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvParticlesMatter10"
+            app:layout_constraintTop_toTopOf="@id/tvParticlesMatter10"
+            tools:text="347.16 μg/m3" />
+
+        <View
+            android:id="@+id/divider7"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_height"
+            android:layout_marginStart="@dimen/space_16"
+            android:layout_marginEnd="@dimen/space_16"
+            android:background="@color/cardview_shadow_start_color"
+            android:visibility="@{viewModel.airPollutionData.progressVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintTop_toBottomOf="@id/tvParticlesMatter10" />
+
+        <TextView
+            android:id="@+id/tvNH3"
+            style="@style/Style.TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/ammonia"
+            android:visibility="@{viewModel.airPollutionData.progressVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintEnd_toStartOf="@id/tvNH3Value"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider7"
+            tools:text="NH3 (Ammonia)" />
+
+        <TextView
+            android:id="@+id/tvNH3Value"
+            style="@style/Style.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end|center_vertical"
+            android:text="@{viewModel.airPollutionData.co.equals((@string/no_data)) ? (@string/no_data) : @string/parameter(viewModel.airPollutionData.nh3)}"
+            android:visibility="@{viewModel.airPollutionData.progressVisibility ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@id/tvNH3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvNH3"
+            app:layout_constraintTop_toTopOf="@id/tvNH3"
+            tools:text="347.16 μg/m3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
