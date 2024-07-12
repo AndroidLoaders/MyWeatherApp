@@ -1,6 +1,5 @@
 package com.example.zooplsdemo.ui.networkadapter.retrofit
 
-import android.app.Application
 import com.example.zooplsdemo.BuildConfig
 import com.example.zooplsdemo.ui.networkadapter.weatherdataprovider.WeatherDataServiceProvider
 import com.google.gson.GsonBuilder
@@ -8,12 +7,10 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.io.File
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 

@@ -5,7 +5,6 @@ import com.example.zooplsdemo.ui.networkadapter.models.AirPollutionData
 import com.example.zooplsdemo.ui.networkadapter.models.CurrentWeatherData
 import com.example.zooplsdemo.ui.networkadapter.models.ForecastWeatherData
 import com.example.zooplsdemo.ui.networkadapter.retrofit.WeatherApiProvider
-import com.example.zooplsdemo.ui.networkadapter.weatherdataprovider.NetworkParams
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
